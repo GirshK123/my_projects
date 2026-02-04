@@ -9,6 +9,9 @@ version: '1.0.0'
 profile: 'sakila_dbt'
 vars:
   init_date: '1900-01-01'
+=======
+  init_date: ('1900-01-01 00:00:00'::timestamp)
+
 # These configurations specify where dbt should look for different types of files.
 # The `model-paths` config, for example, states that models in this project can be
 # found in the "models/" directory. You probably won't need to change these!
@@ -27,7 +30,11 @@ clean-targets:         # directories to be removed by `dbt clean`
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 on-run-start:
   - CREATE SCHEMA IF NOT EXISTS dwh;
+
   - CREATE TABLE if not exists dwh.log_table (id varchar(50), start_at timestamptz, end_at timestamp);
+=======
+  - CREATE TABLE if not exists dwh.log_table (id varchar(50), start_at timestamptz, end_at timestamptz, model_name varchar(50), run_duration numeric);
+
   - "{{ run_log('insert', 'general') }}"
 
 on-run-end: 
@@ -50,5 +57,9 @@ models:
     fact:
       +materialized: incremental
       +schema: fact
+
       +pre_hook: "{{ run_log('update', this.name) }}"
+      +post_hook: "{{ run_log('update', this.name) }}"
+=======
+      +pre_hook: "{{ run_log('insert', this.name) }}"
       +post_hook: "{{ run_log('update', this.name) }}"

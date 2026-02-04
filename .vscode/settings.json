@@ -1,0 +1,23 @@
+{
+    "dbt.enableNewLineagePanel": true,
+    "dbt.perspectiveTheme": "Vintage",
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "driver": "PostgreSQL",
+            "name": "flight_db",
+            "connectString": "postgresql://postgres.hnmhealnkwvwwwbvndht:UXCQ7iFZSFm-?Z@aws-0-eu-north-1.pooler.supabase.com:5432/postgres"
+        },
+        {
+            "previewLimit": 50,
+            "server": "aws-0-eu-north-1.pooler.supabase.com",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "flight_db",
+            "password": "UXCQ7iFZSFm-?Z",
+            "username": "postgres.hnmhealnkwvwwwbvndht",
+            "database": "postgres"
+        }
+    ]
+}

@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: dim_date
+    description: "date data"
+    columns:
+      - name: date_dim_id
+        description: "The primary key for this table"
+        data_tests:
+          - unique
+          - not_null
+
+  - name: dim_customer
+    description: "customer data"
+    columns:
+      - name: is_active
+        description: "is a customer active"
+        data_tests:
+          - accepted_values:
+              values: [ "yes", "no" ]
+
+  - name: dim_staff
+    description: "staff data"
+    columns:
+      - name: staff_id
+        description: "The primary key for this table"
+        data_tests:
+            - unique
+            - not_null
+
+  - name: dim_store
+    description: "store data"
+    columns:
+      - name: store_id
+        description: "The primary key for this table"
+        data_tests:
+            - unique
+            - not_null
+
+  - name: dim_film
+    description: "film data"
+    columns:
+      - name: film_id
+        description: "The primary key for this table"
+        data_tests:
+            - unique
+            - not_null
+

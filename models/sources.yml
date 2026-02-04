@@ -1,0 +1,21 @@
+version: 2
+
+sources:
+  - name: stg
+    schema: stg
+    tables:
+      - name: cust
+        identifier: customer
+      - name: address
+      - name: city
+      - name: staff
+      - name: store
+      - name: z_refresh_from
+      - name: payment
+      - name: rental
+      - name: country
+      - name: film
+      - name: film_category
+      - name: category
+      - name: language
+      - name: inventory
