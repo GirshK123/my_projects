@@ -1,1 +1,0 @@
-CREATE TABLE if not exists dwh.log_table (id varchar(50), start_at timestamptz, end_at timestamptz, model_name varchar(50), run_duration numeric);
